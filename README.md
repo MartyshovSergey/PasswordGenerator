@@ -30,6 +30,5 @@ source venv/bin/activate
 
 Установить необходимые библиотеки:
 ```
-pip install customtkinter
-pip install pillow
+python3 -m pip install -r requirements.txt
 ```
