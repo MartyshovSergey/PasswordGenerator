@@ -21,7 +21,7 @@ class App(Ctk.CTk):
             dark_image=Image.open('img.png'),
             size=(460, 150)
         )
-        # Для того, чтобы отобразить логотип помещяем его в виджет Label,
+        # Для того, чтобы отобразить логотип помещаем его в виджет Label,
         # master=self
         # размещает на основном окне программы
         self.logo_label = Ctk.CTkLabel(master=self, text='', image=self.logo)
@@ -56,7 +56,7 @@ class App(Ctk.CTk):
             sticky='nsew'
         )
 
-        # Слайдер для задания длины пароля
+        # Слайдер для установки длины пароля
         self.password_length_slider = Ctk.CTkSlider(
             master=self.settings_frame,
             from_=0,
@@ -72,7 +72,7 @@ class App(Ctk.CTk):
             sticky='ew'
         )
 
-        # Виджет для вывода длины пароля, заданой слайдером
+        # Виджет для вывода длины пароля, установленной слайдером
         self.password_length_entry = Ctk.CTkEntry(
             master=self.settings_frame,
             width=50
@@ -84,7 +84,7 @@ class App(Ctk.CTk):
             sticky='we'
         )
 
-        # Чек-боксы для задания сложности пароля
+        # Чек-боксы для установки сложности пароля
         self.cb_digits_var = tkinter.StringVar()
         self.cb_digits = Ctk.CTkCheckBox(
             master=self.settings_frame,
@@ -138,7 +138,7 @@ class App(Ctk.CTk):
             pady=(10, 10)
         )
 
-        # Выставили значения по умолчанию
+        # Значения по умолчанию
         self.password_length_slider.set(12)
         self.password_length_entry.insert(0, 12)
         self.appearance_mode_option_menu.set('System')
