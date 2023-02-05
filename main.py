@@ -5,6 +5,7 @@ import tkinter
 from PIL import Image
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 
+
 # Шаблон программы
 class App(Ctk.CTk):
     def __init__(self):
@@ -16,18 +17,26 @@ class App(Ctk.CTk):
         self.resizable(False, False)
 
         # Логотип
-        self.logo = Ctk.CTkImage(dark_image=Image.open('img.png'), size=(460, 150))
-        # Для того, чтобы отобразить логотип помещяем его в виджет Label, master=self
+        self.logo = Ctk.CTkImage(
+            dark_image=Image.open('img.png'),
+            size=(460, 150)
+        )
+        # Для того, чтобы отобразить логотип помещяем его в виджет Label,
+        # master=self
         # размещает на основном окне программы
         self.logo_label = Ctk.CTkLabel(master=self, text='', image=self.logo)
-        # С помощью метода упаковки grid размещаем виджет в 0 строке и 0 столбце основного окна
+        # С помощью метода упаковки grid размещаем виджет в 0 строке и
+        # 0 столбце основного окна
         self.logo_label.grid(row=0, column=0)
 
         # Фрейм для вывода пароля
         self.password_frame = Ctk.CTkFrame(master=self, fg_color='transparent')
         self.password_frame.grid(row=1, column=0, padx=(20, 20), sticky='nsew')
 
-        self.entry_password = Ctk.CTkEntry(master=self.password_frame, width=300)
+        self.entry_password = Ctk.CTkEntry(
+            master=self.password_frame,
+            width=300
+        )
         self.entry_password.grid(row=0, column=0, padx=(0, 20))
 
         # Кнопка генерации пароля
@@ -55,11 +64,25 @@ class App(Ctk.CTk):
             number_of_steps=100,
             command=self.slider_event
         )
-        self.password_length_slider.grid(row=1, column=0, columnspan=3, pady=(20, 20), sticky='ew')
+        self.password_length_slider.grid(
+            row=1,
+            column=0,
+            columnspan=3,
+            pady=(20, 20),
+            sticky='ew'
+        )
 
         # Виджет для вывода длины пароля, заданой слайдером
-        self.password_length_entry = Ctk.CTkEntry(master=self.settings_frame, width=50)
-        self.password_length_entry.grid(row=1, column=3, padx=(20, 10), sticky='we')
+        self.password_length_entry = Ctk.CTkEntry(
+            master=self.settings_frame,
+            width=50
+        )
+        self.password_length_entry.grid(
+            row=1,
+            column=3,
+            padx=(20, 10),
+            sticky='we'
+        )
 
         # Чек-боксы для задания сложности пароля
         self.cb_digits_var = tkinter.StringVar()
@@ -137,14 +160,15 @@ class App(Ctk.CTk):
             length=int(self.password_length_slider.get()),
             characters=self.get_characters()
         ))
+
     # Функция для обработки изменения значений слайдера
     def slider_event(self, value):
         self.password_length_entry.delete(0, 'end')
         self.password_length_entry.insert(0, int(value))
+
     # Функция изменения цветового оформления
     def appearance_mode_option_event(self, new_appearance_mode):
         Ctk.set_appearance_mode(new_appearance_mode)
-
 
 
 if __name__ == '__main__':
